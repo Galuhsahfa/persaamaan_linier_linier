@@ -1,0 +1,31 @@
+#Persamaan Non Linier
+#3 + x3 - x = 4
+
+import math
+def persamaan_non_linier(f, a, b, total):
+    fa = f(a)
+    fb = f(b)
+
+    if fa * fb > 0:
+        raise ValueError("Melebihi batas  interval.")
+
+    while abs(b - a) > tol:
+        c = (a + b) / 2
+        fc = f(c)
+
+        if fc * fa > 0:
+            a = c
+        else:
+            b = c
+
+    return c
+
+def f(x):
+    return 3 + x**3 - x - 4
+
+a = -1
+b = 2
+total = 1e-6
+
+batas = persamaan_non_linier(f, a, b, total)
+print("Solusi dari persamaan non linier 3 + x3 - x = 4, maka fungsi f(x) = 0 yaitu:", batas)
